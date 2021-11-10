@@ -1,0 +1,84 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/jat89/Software/Geant4Work/examples/TestEm18_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_47407/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_47407.dir/build.make CMakeFiles/cmTC_47407.dir/build
+gmake[1]: Entering directory `/gpfs/loomis/home.grace/jat89/Software/Geant4Work/examples/TestEm18_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_47407.dir/src.c.o
+/gpfs/loomis/apps/avx/software/GCCcore/10.2.0/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD -o CMakeFiles/cmTC_47407.dir/src.c.o -c /home/jat89/Software/Geant4Work/examples/TestEm18_build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_47407
+/gpfs/loomis/apps/avx/software/CMake/3.18.4-GCCcore-10.2.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_47407.dir/link.txt --verbose=1
+/gpfs/loomis/apps/avx/software/GCCcore/10.2.0/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD CMakeFiles/cmTC_47407.dir/src.c.o -o cmTC_47407 
+CMakeFiles/cmTC_47407.dir/src.c.o:src.c:function main: error: undefined reference to 'pthread_create'
+CMakeFiles/cmTC_47407.dir/src.c.o:src.c:function main: error: undefined reference to 'pthread_detach'
+CMakeFiles/cmTC_47407.dir/src.c.o:src.c:function main: error: undefined reference to 'pthread_cancel'
+CMakeFiles/cmTC_47407.dir/src.c.o:src.c:function main: error: undefined reference to 'pthread_join'
+CMakeFiles/cmTC_47407.dir/src.c.o:src.c:function main: error: undefined reference to 'pthread_atfork'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_47407] Error 1
+gmake[1]: Leaving directory `/gpfs/loomis/home.grace/jat89/Software/Geant4Work/examples/TestEm18_build/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_47407/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/jat89/Software/Geant4Work/muons/muonsInPanel_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_ae38e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ae38e.dir/build.make CMakeFiles/cmTC_ae38e.dir/build
+gmake[1]: Entering directory `/gpfs/loomis/home.grace/jat89/Software/Geant4Work/muons/muonsInPanel_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ae38e.dir/src.c.o
+/gpfs/loomis/apps/avx/software/GCCcore/10.2.0/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD -o CMakeFiles/cmTC_ae38e.dir/src.c.o -c /home/jat89/Software/Geant4Work/muons/muonsInPanel_build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_ae38e
+/gpfs/loomis/apps/avx/software/CMake/3.18.4-GCCcore-10.2.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ae38e.dir/link.txt --verbose=1
+/gpfs/loomis/apps/avx/software/GCCcore/10.2.0/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD CMakeFiles/cmTC_ae38e.dir/src.c.o -o cmTC_ae38e 
+CMakeFiles/cmTC_ae38e.dir/src.c.o:src.c:function main: error: undefined reference to 'pthread_create'
+CMakeFiles/cmTC_ae38e.dir/src.c.o:src.c:function main: error: undefined reference to 'pthread_detach'
+CMakeFiles/cmTC_ae38e.dir/src.c.o:src.c:function main: error: undefined reference to 'pthread_cancel'
+CMakeFiles/cmTC_ae38e.dir/src.c.o:src.c:function main: error: undefined reference to 'pthread_join'
+CMakeFiles/cmTC_ae38e.dir/src.c.o:src.c:function main: error: undefined reference to 'pthread_atfork'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_ae38e] Error 1
+gmake[1]: Leaving directory `/gpfs/loomis/home.grace/jat89/Software/Geant4Work/muons/muonsInPanel_build/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_ae38e/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
