@@ -1,0 +1,42 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/jat89/Software/Geant4Work/examples/exgps_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_5ec16/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5ec16.dir/build.make CMakeFiles/cmTC_5ec16.dir/build
+gmake[1]: Entering directory `/gpfs/loomis/home.grace/jat89/Software/Geant4Work/examples/exgps_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5ec16.dir/src.c.o
+/gpfs/loomis/apps/avx/software/GCCcore/10.2.0/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD -o CMakeFiles/cmTC_5ec16.dir/src.c.o -c /home/jat89/Software/Geant4Work/examples/exgps_build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_5ec16
+/gpfs/loomis/apps/avx/software/CMake/3.18.4-GCCcore-10.2.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5ec16.dir/link.txt --verbose=1
+/gpfs/loomis/apps/avx/software/GCCcore/10.2.0/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD CMakeFiles/cmTC_5ec16.dir/src.c.o -o cmTC_5ec16 
+CMakeFiles/cmTC_5ec16.dir/src.c.o:src.c:function main: error: undefined reference to 'pthread_create'
+CMakeFiles/cmTC_5ec16.dir/src.c.o:src.c:function main: error: undefined reference to 'pthread_detach'
+CMakeFiles/cmTC_5ec16.dir/src.c.o:src.c:function main: error: undefined reference to 'pthread_cancel'
+CMakeFiles/cmTC_5ec16.dir/src.c.o:src.c:function main: error: undefined reference to 'pthread_join'
+CMakeFiles/cmTC_5ec16.dir/src.c.o:src.c:function main: error: undefined reference to 'pthread_atfork'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_5ec16] Error 1
+gmake[1]: Leaving directory `/gpfs/loomis/home.grace/jat89/Software/Geant4Work/examples/exgps_build/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_5ec16/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+

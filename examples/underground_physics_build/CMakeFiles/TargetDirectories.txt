@@ -1,0 +1,8 @@
+/home/jat89/Software/Geant4Work/examples/underground_physics_build/CMakeFiles/install/strip.dir
+/home/jat89/Software/Geant4Work/examples/underground_physics_build/CMakeFiles/install/local.dir
+/home/jat89/Software/Geant4Work/examples/underground_physics_build/CMakeFiles/install.dir
+/home/jat89/Software/Geant4Work/examples/underground_physics_build/CMakeFiles/list_install_components.dir
+/home/jat89/Software/Geant4Work/examples/underground_physics_build/CMakeFiles/rebuild_cache.dir
+/home/jat89/Software/Geant4Work/examples/underground_physics_build/CMakeFiles/edit_cache.dir
+/home/jat89/Software/Geant4Work/examples/underground_physics_build/CMakeFiles/underground_physics.dir
+/home/jat89/Software/Geant4Work/examples/underground_physics_build/CMakeFiles/DMX.dir

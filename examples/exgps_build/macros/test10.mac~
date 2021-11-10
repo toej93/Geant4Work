@@ -1,0 +1,45 @@
+# test10
+#
+/run/initialize
+#
+/gps/particle geantino
+
+# source
+/gps/pos/type Volume
+/gps/pos/shape Sphere
+/gps/pos/centre 0. 0. 0. cm
+/gps/pos/radius 2.0 cm
+
+# angular distribution
+/gps/ang/type user
+/gps/hist/type theta
+/gps/hist/file df/gpfs/loomis/home.grace/jat89/Software/MCMuFFIN-G4/spectra/MACRO_muonSpectrumTheta.dat
+/gps/hist/inter Lin
+
+#/gps/hist/type phi
+#/gps/hist/file /gpfs/loomis/home.grace/jat89/Software/MCMuFFIN-G4/spectra/MACRO_muonSpectrumPhi.dat
+#/gps/hist/inter Lin
+
+# energy distribution
+/gps/ene/type Pow
+/gps/ene/min 2. MeV
+/gps/ene/max 10. MeV
+/gps/ene/alpha -2.7
+
+
+
+# commands below are independent of gps
+#
+/analysis/setFileName test10
+/analysis/h1/set 1 100 1 15 MeV
+/analysis/h1/set 2 100 0 10 cm
+/analysis/h1/set 3 110 -1.1 1.1 none  #cos(theta)
+/analysis/h1/set 4 130 -15  375 deg   #phi
+/analysis/h2/setX 4 120 0 360 deg
+/analysis/h2/setY 4 100 -1 1 none 
+#
+#/control/execute vis.mac
+#
+#/run/printProgress 10000
+#
+/run/beamOn 100
