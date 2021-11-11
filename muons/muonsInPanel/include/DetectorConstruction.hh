@@ -36,9 +36,11 @@
 #include "G4VUserDetectorConstruction.hh"
 #include "globals.hh"
 
+
 class G4LogicalVolume;
 class G4Material;
 class DetectorMessenger;
+class G4Box;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -69,6 +71,9 @@ class DetectorConstruction : public G4VUserDetectorConstruction
      void               PrintParameters();
 
   private:
+    G4Box*             solidWorld;    // pointer to the solid envelope
+     G4LogicalVolume*   logicWorld;    // pointer to the logical envelope
+     G4VPhysicalVolume* physiWorld;    // pointer to the physical envelope
 
      G4VPhysicalVolume* fPBox;
      G4LogicalVolume*   fLBox;

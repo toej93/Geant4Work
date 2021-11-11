@@ -81,8 +81,9 @@ void DetectorConstruction::DefineMaterials()
   G4double z,a;
 
   G4Element* H  = new G4Element("Hydrogen" ,"H" , z= 1., a=   1.01*g/mole);
-  G4Element* N  = new G4Element("Nitrogen" ,"N" , z= 7., a=  14.01*g/mole);
+  // G4Element* N  = new G4Element("Nitrogen" ,"N" , z= 7., a=  14.01*g/mole);
   G4Element* O  = new G4Element("Oxygen"   ,"O" , z= 8., a=  16.00*g/mole);
+  G4Element* C = new G4Element("Carbon"   ,"C" , z= 6., a=  12.00*g/mole);
 
   //
   // define materials
@@ -91,16 +92,21 @@ void DetectorConstruction::DefineMaterials()
   G4int ncomponents, natoms;
   G4double fractionmass;
 
-  G4Material* Air =
-  new G4Material("Air", density= 1.290*mg/cm3, ncomponents=2);
-  Air->AddElement(N, fractionmass=70.*perCent);
-  Air->AddElement(O, fractionmass=30.*perCent);
+  // G4Material* Air =
+  // new G4Material("Air", density= 1.290*mg/cm3, ncomponents=2);
+  // Air->AddElement(N, fractionmass=70.*perCent);
+  // Air->AddElement(O, fractionmass=30.*perCent);
 
   G4Material* H2O =
   new G4Material("Water", density= 1.000*g/cm3, ncomponents=2);
   H2O->AddElement(H, natoms=2);
   H2O->AddElement(O, natoms=1);
   H2O->GetIonisation()->SetMeanExcitationEnergy(78.0*eV);
+
+  G4Material* Panel =
+  new G4Material("Panel", density= 1.023*g/cm3, ncomponents=2);
+  Panel->AddElement(H, fractionmass=8.*perCent);
+  Panel->AddElement(C, fractionmass=92.*perCent);
 
   G4Material* vapor =
   new G4Material("Water_vapor", density= 1.000*mg/cm3, ncomponents=2);
@@ -132,6 +138,35 @@ G4VPhysicalVolume* DetectorConstruction::ConstructVolumes()
   G4PhysicalVolumeStore::GetInstance()->Clean();
   G4LogicalVolumeStore::GetInstance()->Clean();
   G4SolidStore::GetInstance()->Clean();
+  G4NistManager* man=G4NistManager::Instance();
+
+  G4Material* Air= man->FindOrBuildMaterial("G4_Galactic");
+
+  //--------- Definitions of Solids, Logical Volumes, Physical Volumes ---------
+  // World
+  G4double worldLength = 0.3*m;
+  G4double worldboxside = worldLength / 2;
+
+  G4GeometryManager::GetInstance()->SetWorldMaximumExtent(worldLength);
+  G4cout<<"construct: world solid"<<G4endl;
+  solidWorld= new G4Box("World",worldboxside,worldboxside,worldboxside);
+  G4cout<<"construct: world logic"<<G4endl;
+  logicWorld= new G4LogicalVolume( solidWorld, Air, "World", 0, 0, 0);
+
+  //  Must place the World Physical volume unrotated at (0,0,0).
+  //
+  G4cout<<"construct: world physic"<<G4endl;
+  physiWorld = new G4PVPlacement(0,               // no rotation
+          G4ThreeVector(0, 0, 0), // at (0,0,0)
+          logicWorld,      // its logical volume
+          "World",         // its name
+          0,               // its mother  volume
+          false,           // no boolean operations
+          0);              // copy number
+
+  //------------------------------
+  // Target
+  //------------------------------
 
   G4Box*
   sBox = new G4Box("Container",                              //its name
@@ -140,12 +175,13 @@ G4VPhysicalVolume* DetectorConstruction::ConstructVolumes()
   fLBox = new G4LogicalVolume(sBox,                        //its shape
                              fMaterial,                    //its material
                              fMaterial->GetName());        //its name
-
-  fPBox = new G4PVPlacement(0,                          //no rotation
+  G4RotationMatrix* rotationMatrix = new G4RotationMatrix();
+  rotationMatrix->rotateY(0.*deg);
+  fPBox = new G4PVPlacement(rotationMatrix,                          //no rotation
                              G4ThreeVector(),           //at (0,0,0)
                            fLBox,                       //its logical volume
                            fMaterial->GetName(),        //its name
-                           0,                           //its mother  volume
+                           logicWorld,                           //its mother  volume
                            false,                       //no boolean operation
                            0);                          //copy number
 
@@ -153,7 +189,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructVolumes()
 
   //always return the root volume
   //
-  return fPBox;
+  return physiWorld;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
