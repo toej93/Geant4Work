@@ -176,7 +176,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructVolumes()
                              fMaterial,                    //its material
                              fMaterial->GetName());        //its name
   G4RotationMatrix* rotationMatrix = new G4RotationMatrix();
-  rotationMatrix->rotateY(0.*deg);
+  rotationMatrix->rotateY(90.*deg);
   fPBox = new G4PVPlacement(rotationMatrix,                          //no rotation
                              G4ThreeVector(),           //at (0,0,0)
                            fLBox,                       //its logical volume

@@ -53,10 +53,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /gpfs/loomis/apps/avx/software/CMake/3.18.4-GCCcore-10.2.0/bin/cmake
+CMAKE_COMMAND = /vast/palmer/apps/avx.grace/software/CMake/3.18.4-GCCcore-10.2.0/bin/cmake
 
 # The command to remove a file.
-RM = /gpfs/loomis/apps/avx/software/CMake/3.18.4-GCCcore-10.2.0/bin/cmake -E rm -f
+RM = /vast/palmer/apps/avx.grace/software/CMake/3.18.4-GCCcore-10.2.0/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -368,52 +368,39 @@ muonsInPanel: CMakeFiles/muonsInPanel.dir/src/SteppingAction.cc.o
 muonsInPanel: CMakeFiles/muonsInPanel.dir/src/SteppingVerbose.cc.o
 muonsInPanel: CMakeFiles/muonsInPanel.dir/src/TrackingAction.cc.o
 muonsInPanel: CMakeFiles/muonsInPanel.dir/build.make
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4Tree.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4FR.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4GMocren.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4visHepRep.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4RayTracer.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4VRML.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4OpenGL.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4gl2ps.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4vis_management.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4modeling.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4interfaces.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4persistency.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4error_propagation.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4readout.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4physicslists.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4tasking.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4parmodels.so
-muonsInPanel: /gpfs/loomis/apps/avx/software/libglvnd/1.3.2-GCCcore-10.2.0/lib/libGL.so
-muonsInPanel: /usr/lib64/libQt5OpenGL.so.5.9.7
-muonsInPanel: /usr/lib64/libQt5PrintSupport.so.5.9.7
-muonsInPanel: /usr/lib64/libQt5Widgets.so.5.9.7
-muonsInPanel: /usr/lib64/libQt5Gui.so.5.9.7
-muonsInPanel: /usr/lib64/libQt5Core.so.5.9.7
-muonsInPanel: /gpfs/loomis/apps/avx/software/X11/20201008-GCCcore-10.2.0/lib/libXmu.so
-muonsInPanel: /gpfs/loomis/apps/avx/software/X11/20201008-GCCcore-10.2.0/lib/libXext.so
-muonsInPanel: /gpfs/loomis/apps/avx/software/X11/20201008-GCCcore-10.2.0/lib/libXt.so
-muonsInPanel: /gpfs/loomis/apps/avx/software/X11/20201008-GCCcore-10.2.0/lib/libICE.so
-muonsInPanel: /gpfs/loomis/apps/avx/software/X11/20201008-GCCcore-10.2.0/lib/libSM.so
-muonsInPanel: /gpfs/loomis/apps/avx/software/X11/20201008-GCCcore-10.2.0/lib/libX11.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4run.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4event.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4tracking.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4processes.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4analysis.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4Tree.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4FR.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4GMocren.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4visHepRep.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4RayTracer.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4VRML.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4vis_management.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4modeling.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4interfaces.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4persistency.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4error_propagation.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4readout.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4physicslists.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4tasking.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4parmodels.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4run.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4event.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4tracking.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4processes.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4analysis.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4tools.so
 muonsInPanel: /gpfs/loomis/apps/avx/software/expat/2.2.9-GCCcore-10.2.0/lib/libexpat.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4digits_hits.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4track.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4particles.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4geometry.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4materials.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4zlib.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4graphics_reps.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4intercoms.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4global.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4clhep.so
-muonsInPanel: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4ptl.so.0.0.2
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4digits_hits.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4track.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4particles.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4geometry.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4materials.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4zlib.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4graphics_reps.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4intercoms.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4global.so
+muonsInPanel: /gpfs/loomis/apps/avx/software/Geant4/11.0.0-GCCcore-10.2.0/lib64/libG4ptl.so.0.0.2
+muonsInPanel: /gpfs/loomis/apps/avx/software/CLHEP/2.4.5.1-GCCcore-10.2.0/lib/libCLHEP-2.4.5.1.so
 muonsInPanel: CMakeFiles/muonsInPanel.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jat89/Software/Geant4Work/muons/muonsInPanel_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX executable muonsInPanel"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/muonsInPanel.dir/link.txt --verbose=$(VERBOSE)

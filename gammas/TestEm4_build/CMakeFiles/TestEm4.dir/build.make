@@ -53,10 +53,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /gpfs/loomis/apps/avx/software/CMake/3.18.4-GCCcore-10.2.0/bin/cmake
+CMAKE_COMMAND = /vast/palmer/apps/avx.grace/software/CMake/3.18.4-GCCcore-10.2.0/bin/cmake
 
 # The command to remove a file.
-RM = /gpfs/loomis/apps/avx/software/CMake/3.18.4-GCCcore-10.2.0/bin/cmake -E rm -f
+RM = /vast/palmer/apps/avx.grace/software/CMake/3.18.4-GCCcore-10.2.0/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -218,52 +218,53 @@ TestEm4: CMakeFiles/TestEm4.dir/src/RunAction.cc.o
 TestEm4: CMakeFiles/TestEm4.dir/src/SteppingAction.cc.o
 TestEm4: CMakeFiles/TestEm4.dir/src/SteppingVerbose.cc.o
 TestEm4: CMakeFiles/TestEm4.dir/build.make
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4Tree.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4FR.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4GMocren.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4visHepRep.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4RayTracer.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4VRML.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4OpenGL.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4gl2ps.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4vis_management.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4modeling.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4interfaces.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4persistency.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4error_propagation.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4readout.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4physicslists.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4tasking.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4parmodels.so
-TestEm4: /gpfs/loomis/apps/avx/software/libglvnd/1.3.2-GCCcore-10.2.0/lib/libGL.so
-TestEm4: /usr/lib64/libQt5OpenGL.so.5.9.7
-TestEm4: /usr/lib64/libQt5PrintSupport.so.5.9.7
-TestEm4: /usr/lib64/libQt5Widgets.so.5.9.7
-TestEm4: /usr/lib64/libQt5Gui.so.5.9.7
-TestEm4: /usr/lib64/libQt5Core.so.5.9.7
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4Tree.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4FR.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4GMocren.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4visHepRep.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4RayTracer.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4VRML.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4OpenGL.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4gl2ps.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4vis_management.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4modeling.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4interfaces.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4persistency.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4error_propagation.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4readout.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4physicslists.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4tasking.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4parmodels.so
 TestEm4: /gpfs/loomis/apps/avx/software/X11/20201008-GCCcore-10.2.0/lib/libXmu.so
 TestEm4: /gpfs/loomis/apps/avx/software/X11/20201008-GCCcore-10.2.0/lib/libXext.so
 TestEm4: /gpfs/loomis/apps/avx/software/X11/20201008-GCCcore-10.2.0/lib/libXt.so
 TestEm4: /gpfs/loomis/apps/avx/software/X11/20201008-GCCcore-10.2.0/lib/libICE.so
 TestEm4: /gpfs/loomis/apps/avx/software/X11/20201008-GCCcore-10.2.0/lib/libSM.so
 TestEm4: /gpfs/loomis/apps/avx/software/X11/20201008-GCCcore-10.2.0/lib/libX11.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4run.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4event.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4tracking.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4processes.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4analysis.so
+TestEm4: /gpfs/loomis/apps/avx/software/libglvnd/1.3.2-GCCcore-10.2.0/lib/libGL.so
+TestEm4: /usr/lib64/libQt5OpenGL.so.5.9.7
+TestEm4: /usr/lib64/libQt5PrintSupport.so.5.9.7
+TestEm4: /usr/lib64/libQt5Widgets.so.5.9.7
+TestEm4: /usr/lib64/libQt5Gui.so.5.9.7
+TestEm4: /usr/lib64/libQt5Core.so.5.9.7
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4run.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4event.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4tracking.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4processes.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4analysis.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4tools.so
 TestEm4: /gpfs/loomis/apps/avx/software/expat/2.2.9-GCCcore-10.2.0/lib/libexpat.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4digits_hits.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4track.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4particles.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4geometry.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4materials.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4zlib.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4graphics_reps.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4intercoms.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4global.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4clhep.so
-TestEm4: /home/jat89/Software/MC/geant4-install/10.07/lib64/libG4ptl.so.0.0.2
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4digits_hits.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4track.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4particles.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4geometry.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4materials.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4zlib.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4graphics_reps.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4intercoms.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4global.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4clhep.so
+TestEm4: /home/jat89/Software/MC/geant4-install/11.0.2/lib64/libG4ptl.so.0.0.2
 TestEm4: CMakeFiles/TestEm4.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jat89/Software/Geant4Work/gammas/TestEm4_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable TestEm4"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TestEm4.dir/link.txt --verbose=$(VERBOSE)

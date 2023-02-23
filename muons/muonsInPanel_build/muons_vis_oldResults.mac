@@ -1,0 +1,176 @@
+/control/cout/ignoreThreadsExcept 0
+/control/verbose 2
+/run/verbose 1
+#
+/testem/det/setMat Panel
+/testem/det/setSize 0.25 m
+#
+# /testem/phys/addPhysics standard
+#
+/run/setCut 1 mm
+#
+/run/initialize
+#
+/gps/particle mu-
+/gps/energy 5 GeV
+# /gps/position 0.0 0.0 0.05 m
+
+# /gps/pos/type Surface
+# /gps/pos/shape Sphere
+# /gps/pos/radius 0.02 m
+# /gps/pos/centre 0. 0. 0. m
+
+# /gps/direction 0 0 -1
+
+
+
+/gps/pos/type Surface
+/gps/pos/shape Square
+/gps/pos/centre 0. 0. 0.115 m
+/gps/pos/halfx 0.25 m
+/gps/pos/halfy 0.25 m
+
+# /gps/ang/type cos
+# /gps/pos/type Point
+#
+/gps/ang/type iso
+/gps/ang/mintheta 0.0 deg
+/gps/ang/maxtheta 45.0 deg
+/gps/ang/minphi 0.0 deg
+/gps/ang/maxphi 360.0 deg
+# /gps/hist/type biasz
+# /gps/hist/point 0. 0.
+# /gps/hist/point 0.5 1.
+# /gps/hist/point 1. 1.
+# /gps/ang/focuspoint 0 0 0 m
+# /gps/ang/surfnorm true
+
+# /gps/ang/type user
+# /gps/hist/type theta
+# /gps/hist/point 0.0596423873810984 0.08301046814101476
+# /gps/hist/point 0.11751438587797017 0.30413557546567427
+# /gps/hist/point 0.17538638437484194 0.4657642981169715
+# /gps/hist/point 0.23325838287171372 0.6128094752490006
+# /gps/hist/point 0.2911303813685855 0.7666018519010622
+# /gps/hist/point 0.34900237986545724 0.9312367906397516
+# /gps/hist/point 0.40687437836232904 1.0991914547030897
+# /gps/hist/point 0.4647463768592008 1.2562124626466709
+# /gps/hist/point 0.5226183753560726 1.3854740144918598
+# /gps/hist/point 0.5804903738529443 1.4710064893760069
+# /gps/hist/point 0.6383623723498161 1.5003955147047014
+# /gps/hist/point 0.6962343708466878 1.4667515068060626
+# /gps/hist/point 0.7541063693435596 1.3699496830870554
+# /gps/hist/point 0.8119783678404314 1.2171405456918354
+# /gps/hist/point 0.8698503663373032 1.0225308366621335
+# /gps/hist/point 0.9277223648341749 0.806434964599688
+# /gps/hist/point 0.9855943633310467 0.5935969028306561
+# /gps/hist/point 1.0434663618279185 0.41078255907214756
+# /gps/hist/point 1.1013383603247902 0.28364261660063117
+# /gps/hist/point 1.159210358821662 0.2328458469226492
+# #
+# /gps/hist/type phi
+# /gps/hist/point 0.3141565172770888 0.20718207600223204
+# /gps/hist/point 0.6283116785520044 0.23575993393844658
+# /gps/hist/point 0.94246683982692 0.2474009037634634
+# /gps/hist/point 1.2566220011018356 0.2751861580770196
+# /gps/hist/point 1.5707771623767512 0.2583208237650942
+# /gps/hist/point 1.8849323236516669 0.19795477259063568
+# /gps/hist/point 2.1990874849265825 0.14080277276426953
+# /gps/hist/point 2.513242646201498 0.12614304711050595
+# /gps/hist/point 2.8273978074764137 0.15577759471903835
+# /gps/hist/point 3.1415529687513293 0.19866883199185478
+# /gps/hist/point 3.455708130026245 0.21690372406365557
+# /gps/hist/point 3.7698632913011605 0.19205713698397914
+# /gps/hist/point 4.0840184525760765 0.13560917310301338
+# /gps/hist/point 4.398173613850991 0.07849528509783232
+# /gps/hist/point 4.712328775125908 0.047811526310270275
+# /gps/hist/point 5.0264839364008225 0.04783891484034927
+# /gps/hist/point 5.340639097675739 0.06256909444862738
+# /gps/hist/point 5.654794258950654 0.0824867950655747
+# /gps/hist/point 5.96894942022557 0.12417155788459683
+# /gps/hist/point 6.283104581500485 0.15200032292619464
+#
+#
+# /gps/ene/type Pow
+# /gps/ene/min 2. GeV
+# /gps/ene/max 10. GeV
+# /gps/ene/alpha -2.7
+
+/vis/open OGL 600x600-0+0
+
+/vis/viewer/set/autoRefresh false
+/vis/verbose errors
+#
+# Draw geometry:
+/vis/drawVolume
+#
+# Specify view angle:
+#/vis/viewer/set/viewpointThetaPhi 90. 0.
+#
+# Specify zoom value:
+/vis/viewer/zoom 1.4
+#
+# Specify style (surface or wireframe):
+#/vis/viewer/set/style surface
+#
+# Draw coordinate axes:
+# /vis/scene/add/axes 0 0 0 0.2 m
+#
+# Draw smooth trajectories at end of event, showing trajectory points
+# as markers 2 pixels wide:
+/vis/scene/add/trajectories smooth
+/vis/modeling/trajectories/create/drawByCharge
+/vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
+/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 2
+# (if too many tracks cause core dump => /tracking/storeTrajectory 0)
+#
+# Draw hits at end of event:
+#/vis/scene/add/hits
+#
+# To draw only gammas:
+#/vis/filtering/trajectories/create/particleFilter
+#/vis/filtering/trajectories/particleFilter-0/add gamma
+#
+# To invert the above, drawing all particles except gammas,
+# keep the above two lines but also add:
+#/vis/filtering/trajectories/particleFilter-0/invert true
+#
+# Many other options are available with /vis/modeling and /vis/filtering.
+# For example, to select colour by particle ID:
+#/vis/modeling/trajectories/create/drawByParticleID
+#/vis/modeling/trajectories/drawByParticleID-0/set e- blue
+#
+# To superimpose all of the events from a given run:
+/vis/scene/endOfEventAction accumulate
+#
+# Re-establish auto refreshing and verbosity:
+/vis/viewer/set/autoRefresh true
+/vis/verbose warnings
+
+/analysis/setFileName muon
+/testem/trackSecondaries true
+
+#
+/analysis/h1/set  1 100 0    30 cm  #step size
+/analysis/h1/set  2 100 0    60 MeV  #continuous Edeposited
+/analysis/h1/set  3 100 0 60 MeV  #Etransfered by ionisation
+/analysis/h1/set  4 100 0 60 MeV  #Etransfered by brems
+/analysis/h1/set  5 100 0 60 MeV  #Etransfered by (e+,e-) prod
+/analysis/h1/set  6 100 0 60 MeV  #total Etransfered
+/analysis/h1/set  7 100 0 60 MeV  #total Elost
+/analysis/h1/set  8 100 0 60 MeV    #energy balance
+/analysis/h1/set 10 100 0 60 MeV         #total Edep
+/analysis/h1/set 11 100 0 60 MeV  #gamma energy spectrum
+/analysis/h1/set 12 100 0 60 MeV  #e- energy spectrum
+/analysis/h1/set 13 100 0 60 MeV  #e+ energy spectrum
+/analysis/h1/set 14 130 -15  375 deg #phi direction
+/analysis/h1/set 15 110 -1.1 1.1 none #costheta direction
+
+
+/vis/scene/endOfEventAction accumulate -1
+
+#
+/run/printProgress 5000
+/run/beamOn 5
+
+#/control/execute muons_vis.mac
