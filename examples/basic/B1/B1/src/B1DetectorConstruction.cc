@@ -1,6 +1,4 @@
 //
-// ********************************************************************
-// * License and Disclaimer                                           *
 // *                                                                  *
 // * The  Geant4 software  is  copyright of the Copyright Holders  of *
 // * the Geant4 Collaboration.  It is provided  under  the terms  and *
@@ -59,29 +57,34 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
   // Get nist material manager
   G4NistManager* nist = G4NistManager::Instance(); 
   
-  // Envelope parameters 
+  // Shielding parameters 
   //
-  G4double env_sizeXY = 20*cm, env_sizeZ = 30*cm;
-  G4Material* env_mat = nist->FindOrBuildMaterial("G4_WATER");
+  G4double shield_sizeXYZ = 25*mm;
+  G4Material* shield_mat = nist->FindOrBuildMaterial("G4_Al");
    
   // Option to switch on/off checking of volumes overlaps
   //
   G4bool checkOverlaps = true;
 
   //     
-  // World (Volume of air that envelope and other shapes are inside of)
+  // World 
   //
-  G4double world_sizeXY = 1.2*env_sizeXY;
-  G4double world_sizeZ  = 1.2*env_sizeZ;
-  G4Material* world_mat = nist->FindOrBuildMaterial("G4_AIR");
+  G4double world_sizeXYZ = 10*shield_sizeXYZ;
+  G4double atomicNumber = 1.;
+  G4double massOfMole = 1.008*g/mole;
+  G4double density = 1.e-25*g/cm3;
+  G4double temperature = 2.73*kelvin;
+  G4double pressure = 3.e-18*pascal;
+  G4Material* Vacuum =
+    new G4Material ("Vacuum", atomicNumber, massOfMole, density, kStateGas, temperature, pressure);
   
   G4Box* solidWorld =    
     new G4Box("World",                       //its name
-       0.5*world_sizeXY, 0.5*world_sizeXY, 0.5*world_sizeZ);     //its size
+       world_sizeXYZ, world_sizeXYZ, world_sizeXYZ);     //its size
       
   G4LogicalVolume* logicWorld =                         
     new G4LogicalVolume(solidWorld,          //its solid
-                        world_mat,           //its material
+                        Vacuum,           //its material
                         "World");            //its name
                                    
   G4VPhysicalVolume* physWorld = 
@@ -93,90 +96,102 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
                       false,                 //no boolean operation
                       0,                     //copy number
                       checkOverlaps);        //overlaps checking
-                     
+ 
+
+  //
+  // Envelope
+  //
+  
+  G4double env_sizeXYZ = 5*shield_sizeXYZ;
+  G4Box* solidEnv = 
+    new G4Box("Envelope",
+        0.5*env_sizeXYZ, 0.5*env_sizeXYZ, 0.5*env_sizeXYZ);
+
+  G4LogicalVolume* logicEnv =
+    new G4LogicalVolume(solidEnv,
+                        Vacuum,
+                        "Envelope");
+
+  new G4PVPlacement(0,
+                    G4ThreeVector(),
+                    logicEnv,
+                    "Envelope",
+                    logicWorld,
+                    false,
+                    0,
+                    checkOverlaps);
+
+ 
+  
   //     
-  // Envelope (Inside world, made of water)
+  // Shielding
   //  
-  G4Box* solidEnv =    
-    new G4Box("Envelope",                    //its name
-        0.5*env_sizeXY, 0.5*env_sizeXY, 0.5*env_sizeZ); //its size
+  G4Box* solidShield =    
+    new G4Box("Shielding",                    //its name
+        shield_sizeXYZ, shield_sizeXYZ, shield_sizeXYZ); //its size
       
-  G4LogicalVolume* logicEnv =                         
-    new G4LogicalVolume(solidEnv,            //its solid
-                        env_mat,             //its material
-                        "Envelope");         //its name
+  G4LogicalVolume* logicShield =                         
+    new G4LogicalVolume(solidShield,            //its solid
+                        shield_mat,             //its material
+                        "Shielding");         //its name
                
   new G4PVPlacement(0,                       //no rotation
                     G4ThreeVector(),         //at (0,0,0)
-                    logicEnv,                //its logical volume
-                    "Envelope",              //its name
-                    logicWorld,              //its mother  volume (world, the envelope is in the world volume)
+                    logicShield,                //its logical volume
+                    "Shielding",              //its name
+                    logicEnv,              //its mother  volume 
                     false,                   //no boolean operation
                     0,                       //copy number
                     checkOverlaps);          //overlaps checking
  
   //     
-  // Shape 1
+  // Cavity
   //  
-  G4Material* shape1_mat = nist->FindOrBuildMaterial("G4_A-150_TISSUE");
-  G4ThreeVector pos1 = G4ThreeVector(0, 2*cm, -7*cm);
+  G4double cavity_sizeXYZ = 11*mm;
         
-  // Conical section shape       
-  G4double shape1_rmina =  0.*cm, shape1_rmaxa = 2.*cm;
-  G4double shape1_rminb =  0.*cm, shape1_rmaxb = 4.*cm;
-  G4double shape1_hz = 3.*cm;
-  G4double shape1_phimin = 0.*deg, shape1_phimax = 360.*deg;
-  G4Cons* solidShape1 =    
-    new G4Cons("Shape1", //its name
-    shape1_rmina, shape1_rmaxa, shape1_rminb, shape1_rmaxb, shape1_hz,
-    shape1_phimin, shape1_phimax); //its size
+  G4Box* solidCavity = 
+    new G4Box("Cavity", cavity_sizeXYZ, cavity_sizeXYZ, cavity_sizeXYZ);    
                       
-  G4LogicalVolume* logicShape1 =                         
-    new G4LogicalVolume(solidShape1,         //its solid
-                        shape1_mat,          //its material (tissue)
-                        "Shape1");           //its name
+  G4LogicalVolume* logicCavity =                         
+    new G4LogicalVolume(solidCavity,         //its solid
+                        Vacuum,          //its material 
+                        "Cavity");           //its name
                
   new G4PVPlacement(0,                       //no rotation
-                    pos1,                    //at position
-                    logicShape1,             //its logical volume
-                    "Shape1",                //its name
-                    logicEnv,                //its mother  volume (envelope!)
+                    G4ThreeVector(),                    //at (0,0,0)
+                    logicCavity,             //its logical volume
+                    "Cavity",                //its name
+                    logicShield,                //its mother  volume 
                     false,                   //no boolean operation
                     0,                       //copy number
                     checkOverlaps);          //overlaps checking
 
   //     
-  // Shape 2
+  // Scintillator
   //
-  G4Material* shape2_mat = nist->FindOrBuildMaterial("G4_BONE_COMPACT_ICRU");
-  G4ThreeVector pos2 = G4ThreeVector(0, -1*cm, 7*cm);
+  G4Material* scint_mat = nist->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
+  G4double scint_sizeXYZ = 10*mm;
 
-  // Trapezoid shape       
-  G4double shape2_dxa = 12*cm, shape2_dxb = 12*cm;
-  G4double shape2_dya = 10*cm, shape2_dyb = 16*cm;
-  G4double shape2_dz  = 6*cm;      
-  G4Trd* solidShape2 =    
-    new G4Trd("Shape2",                      //its name
-              0.5*shape2_dxa, 0.5*shape2_dxb, 
-              0.5*shape2_dya, 0.5*shape2_dyb, 0.5*shape2_dz); //its size
+  G4Box* solidScint =    
+    new G4Box("Scintillator", scint_sizeXYZ, scint_sizeXYZ, scint_sizeXYZ); //its name and size
                 
-  G4LogicalVolume* logicShape2 =                         
-    new G4LogicalVolume(solidShape2,         //its solid
-                        shape2_mat,          //its material (bone)
-                        "Shape2");           //its name
+  G4LogicalVolume* logicScint =                         
+    new G4LogicalVolume(solidScint,         //its solid
+                        scint_mat,          //its material 
+                        "Scintillator");           //its name
                
   new G4PVPlacement(0,                       //no rotation
-                    pos2,                    //at position
-                    logicShape2,             //its logical volume
-                    "Shape2",                //its name
-                    logicEnv,                //its mother  volume (envelope)
+                    G4ThreeVector(),                    //at (0,0,0)
+                    logicScint,             //its logical volume
+                    "Scintillator",                //its name
+                    logicCavity,                //its mother  volume 
                     false,                   //no boolean operation
                     0,                       //copy number
                     checkOverlaps);          //overlaps checking
                 
-  // Set Shape2 as scoring volume
+  // Set Cavity as scoring volume
   //
-  fScoringVolume = logicShape2;
+  fScoringVolume = logicScint;
 
   //
   //always return the physical World
